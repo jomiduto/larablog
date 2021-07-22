@@ -25,3 +25,17 @@ Route::get('/test', function () {
 Route::get('/user/profile', function () {
     return "<h1>Ejemplo de Rutas con Nombres</h1>";
 })->name('profile');
+
+// Creación de ruta - Opción 1 con parámetros
+
+Route::get('home', function () {
+    $nombre = "Jose Miguel Dueñas Torres";
+    return view("home")->with("nombre", $nombre); // Se especifica la vista que se quiere retornar, esta en la carpeta /resources/views
+})->name("home");
+
+// Opción 2 con parámetros
+
+Route::get('home1/{nombre?}/{apellido?}', function ($nombre = "Lizet Daniela", $apellido = "Ospina Castro") {
+    // return view("home")->with("nombre", $nombre);
+    return view("home", ["nombre" => $nombre, "apellido" => $apellido]);
+})->name("home");
