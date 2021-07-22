@@ -7,6 +7,6 @@
     <title>Mi primera vista en Laravel</title>
 </head>
 <body>
-    <h1>¡Laravel, soy <?php echo $nombre.' '.$apellido; ?> y no me vas a quedar grande!</h1>
+    <h1>¡Laravel, soy {{$nombre}} {{$apellido}} y no me vas a quedar grande!</h1>
 </body>
 </html>
