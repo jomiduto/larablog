@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpKernel\Profiler\Profile;
@@ -46,3 +47,6 @@ Route::get('/clase', function () {
 
     return view("clase", ['posts' => $posts]);
 })->name("clase");
+
+// Ruta a un controlador PostController
+Route::get('post', [PostController::class, 'index']);
