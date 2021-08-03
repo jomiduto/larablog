@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\dashboard\PostController;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpKernel\Profiler\Profile;
@@ -49,4 +49,7 @@ Route::get('/clase', function () {
 })->name("clase");
 
 // Ruta a un controlador PostController
-Route::get('post', [PostController::class, 'index']);
+// Route::get('post', [PostController::class, 'index']);
+
+// Ruta de tipo recurso para el controlador PostController
+Route::resource('post', PostController::class);
