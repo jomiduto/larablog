@@ -52,4 +52,4 @@ Route::get('/clase', function () {
 // Route::get('post', [PostController::class, 'index']);
 
 // Ruta de tipo recurso para el controlador PostController
-Route::resource('post', PostController::class);
+Route::resource('dashboard/post', PostController::class);

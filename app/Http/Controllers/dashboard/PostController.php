@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Listar elementos
      *
      * @return \Illuminate\Http\Response
      */
@@ -18,13 +18,13 @@ class PostController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Formulario para crear un recurso
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view("dashboard.post.create"); // Retorno la vista create de la ruta views/dashboard/post
     }
 
     /**
@@ -35,7 +35,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return "Hola mundo, soy store";
     }
 
     /**
@@ -73,7 +73,7 @@ class PostController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     *  Eliminar un recurso
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
