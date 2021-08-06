@@ -37,7 +37,9 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'title' => 'required|min:5|max:500'
+            'title' => 'required|min:5|max:500',
+            // 'url_clean' => 'required|min:5|max:500',
+            'content' => 'required|min:5'
         ]);
 
         if ($validator->fails()) {

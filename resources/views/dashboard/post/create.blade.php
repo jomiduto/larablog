@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         @if ($errors->any())
-            <div class="alert alert-danger">
+            <div class="alert alert-danger" role="alert">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -26,6 +26,9 @@
             <div class="form-group">
                 <label for="title">Título</label>
                 <input type="text" class="form-control" name="title" id="title" autocomplete="off" placeholder="Título">
+                @error('title')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
             </div>
             <div class="form-group">
                 <label for="url_clean">URL limpia</label>
