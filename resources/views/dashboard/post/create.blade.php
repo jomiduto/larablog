@@ -1,15 +1,9 @@
 @extends('dashboard.master')
 
 @section('content')
-    @if ($errors->any())
-        <div class="alert alert-danger" role="alert">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+
+@include('dashboard.partials.validation-error')
+
     <h1>Crear Post</h1>
     <br>
     <form action="{{ route("post.store") }}" method="POST">
