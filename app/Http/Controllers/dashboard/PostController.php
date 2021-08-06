@@ -4,6 +4,7 @@ namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
@@ -35,7 +36,16 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        return "Hola mundo, soy store";
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|min:5|max:500'
+        ]);
+
+        if ($validator->fails()) {
+            return (redirect('dashboard/post/create'))
+                ->withErrors($validator)
+                ->withInput();
+        }
+        echo "Hola mundo: " . $request->title;
     }
 
     /**
