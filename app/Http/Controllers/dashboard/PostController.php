@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\dashboard;
 
-use App\Http\Controllers\Controller;
+use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StorePostPost;
 use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
@@ -34,19 +36,24 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePostPost $request)
     {
-        $validator = Validator::make($request->all(), [
-            'title' => 'required|min:5|max:500',
-            // 'url_clean' => 'required|min:5|max:500',
-            'content' => 'required|min:5'
-        ]);
+        // Forma de validar los campos del formulario
 
-        if ($validator->fails()) {
-            return (redirect('dashboard/post/create'))
-                ->withErrors($validator)
-                ->withInput();
-        }
+        // $validator = Validator::make($request->all(), [
+        //     'title' => 'required|min:5|max:500',
+        //     // 'url_clean' => 'required|min:5|max:500',
+        //     'content' => 'required|min:5'
+        // ]);
+
+        // if ($validator->fails()) {
+        //     return (redirect('dashboard/post/create'))
+        //         ->withErrors($validator)
+        //         ->withInput();
+        // }
+
+        Post::create($request->validated());
+
         echo "Hola mundo: " . $request->title;
     }
 
