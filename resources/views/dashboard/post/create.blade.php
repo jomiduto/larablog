@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('dashboard.partials.validation-error')
+    @include('dashboard.partials.validation-error')
 
     <h1>Crear Post</h1>
     <br>
