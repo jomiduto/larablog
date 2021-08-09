@@ -6,17 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Módulo Administrador</title>
     <link rel="stylesheet" href="{{ asset("css/app.css") }}"> <!-- Se realiza el enlace con la carpeta public/css/app.css -->
-    <script src="{{ asset("js/app.js") }}"></script> <!-- Se realiza el enlace con la carpeta public/js/app.js -->
 </head>
 <body>
-    <div class="container">
-        @if (session('status'))
-            <div class="alert alert-success">
-                {{ session('status') }}
-            </div>
-        @endif
+    @include('dashboard.partials.nav-header-main')
 
+    <div class="container">
+        @include('dashboard.partials.session-flash-status')
         @yield('content')
     </div>
+    <script src="{{ asset("js/app.js") }}"></script> <!-- Se realiza el enlace con la carpeta public/js/app.js -->
+    <script src="{{ asset("js/bootstrap.bundle.min.js") }}"></script>
 </body>
 </html>
