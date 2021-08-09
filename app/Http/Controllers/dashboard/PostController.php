@@ -17,7 +17,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        return "Hola mundos";
+        $posts = Post::orderBy('created_at', 'desc')->get();
+
+        // dd($posts);
+
+        return view('dashboard.post.index', ['posts' => $posts]);
     }
 
     /**
@@ -27,7 +31,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view("dashboard.post.create"); // Retorno la vista create de la ruta views/dashboard/post
+        return view('dashboard.post.create'); // Retorno la vista create de la ruta views/dashboard/post
     }
 
     /**
