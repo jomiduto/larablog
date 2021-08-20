@@ -70,7 +70,9 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        return view('dashboard.post.show', ['post' => $post]);
     }
 
     /**
