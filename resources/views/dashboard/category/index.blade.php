@@ -46,7 +46,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <form id="formDelete" method="POST" action="{{ route('post.destroy', 0) }}" data-action="{{ route('post.destroy', 0) }}">
+              <form id="formDelete" method="POST" action="{{ route('category.destroy', 0) }}" data-action="{{ route('category.destroy', 0) }}">
                 @method('DELETE')
                 @csrf
                 <button type="submit" class="btn btn-danger">Eliminar</button>
@@ -78,7 +78,7 @@
             console.log(action)
             $('#formDelete').attr('action', action)
 
-            modalTitle.textContent = 'Eliminar Post: ' + recipient
+            modalTitle.textContent = 'Eliminar Categoría: ' + recipient
             //modalBodyInput.value = recipient
         })
       </script>
