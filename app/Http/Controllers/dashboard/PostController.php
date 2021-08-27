@@ -112,6 +112,10 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findorFail($id);
+
+        $post->delete();
+
+        return back()->with('status', 'Post eliminado con éxito');
     }
 }
