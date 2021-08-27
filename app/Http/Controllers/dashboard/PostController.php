@@ -31,7 +31,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('dashboard.post.create'); // Retorno la vista create de la ruta views/dashboard/post
+        return view('dashboard.post.create', ['post' => new Post()]); // Retorno la vista create de la ruta views/dashboard/post
     }
 
     /**

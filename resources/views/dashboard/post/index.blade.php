@@ -1,7 +1,7 @@
 @extends('dashboard.master')
 
 @section('content')
-    <h1>Publicacaciones</h1>
+    <h1>Publicaciones</h1>
     <a class="btn btn-success mt-3 mb-3" href="{{ route('post.create') }}">Crear Post</a>
     <br>
     <table class="table table-hover">
