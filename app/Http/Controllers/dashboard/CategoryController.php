@@ -17,7 +17,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        echo "Listado de Categorías";
+        $categories = Category::orderBy('created_at', 'desc')->paginate(5);
+
+        return view('dashboard.category.index', ['categories' => $categories]);
     }
 
     /**
@@ -27,7 +29,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('dashboard.category.create');
+        return view('dashboard.category.create', ['category' => new Category()]);
     }
 
     /**
@@ -39,6 +41,7 @@ class CategoryController extends Controller
     public function store(StoreCategory $request)
     {
         Category::create($request->validated());
+
         return back()->withInput()->with('status', 'Categoría creada con éxito!');
     }
 

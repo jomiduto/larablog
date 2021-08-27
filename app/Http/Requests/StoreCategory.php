@@ -13,7 +13,7 @@ class StoreCategory extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -32,7 +32,10 @@ class StoreCategory extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'El campo título es requerido'
+            'title.required' => 'El campo :attribute es requerido',
+            'url_clean.required' => 'El campo :attribute es requerido',
+            'title.min' => 'El campo :attribute debe tener al menos 5 caracteres',
+            'url_clean.min' => 'El campo :attribute debe tener al menos 5 caracteres'
         ];
     }
 }
