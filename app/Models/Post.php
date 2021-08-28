@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     // use HasFactory;
-    protected $fillable = ['title', 'url_clean', 'content']; //Especifico nombre de las columnas de la tabla
+    protected $fillable = ['title', 'url_clean', 'content', 'category_id']; //Especifico nombre de las columnas de la tabla
 }

@@ -11,6 +11,15 @@
         <input type="text" class="form-control" name="url_clean" id="url_clean" autocomplete="off" placeholder="URL limpia" value="{{ old('url_clean', $post->url_clean) }}">
     </div>
     <div class="form-group">
+        <label for="category_id">Categoría</label>
+        <select class="form-select" name="category_id" id="category_id">
+            <option value="0" selected>Seleccione</option>
+            @foreach ($categories as $title => $id)
+                <option value="{{ $id }}">{{ $title }}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group">
         <label for="content">Contenido</label>
         <textarea class="form-control" name="content" id="content" rows="3" placeholder="Contenido del post">{{old('content', $post->content)}}</textarea>
         @error('content')
