@@ -11,7 +11,7 @@
     </div>
     <div class="form-group">
         <label for="url_clean">URL limpia</label>
-        <input type="text" class="form-control" name="url_clean" id="url_clean" autocomplete="off" placeholder="URL limpia" value="{{ $post->content }}" readonly>
+        <input type="text" class="form-control" name="url_clean" id="url_clean" autocomplete="off" placeholder="URL limpia" value="{{ $post->url_clean }}" readonly>
     </div>
     <div class="form-group">
         <label for="content">Contenido</label>
