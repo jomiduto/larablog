@@ -13,10 +13,17 @@
     <div class="form-group">
         <label for="category_id">Categoría</label>
         <select class="form-select" name="category_id" id="category_id">
-            <option value="0" selected>Seleccione</option>
+            <option value="" selected>Seleccione</option>
             @foreach ($categories as $title => $id)
                 <option value="{{ $id }}">{{ $title }}</option>
             @endforeach
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="posted">Posted</label>
+        <select class="form-select" name="posted" id="posted">
+            <option value="" selected>Seleccione</option>
+            @include('dashboard.partials.option-yes-not')
         </select>
     </div>
     <div class="form-group">
