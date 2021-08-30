@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePostPost;
+use App\Models\PostImage;
 use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
@@ -112,7 +113,7 @@ class PostController extends Controller
     }
 
     // Función carga de imagen
-    public function image(Request $request, $id)
+    public function image(Request $request, Post $post)
     {
         $request->validate([
             'image' => 'required|mimes:jpg,bmp,png|max:10240' //10Mb
@@ -122,7 +123,9 @@ class PostController extends Controller
 
         $request->image->move(public_path('images'), $filename); // Se establece la ruta donde se guarda la imagen
 
-        echo $filename;
+        PostImage::create(['post_id' => $post->id, 'image' => $filename]); // Guardar registro en BD
+
+        return back()->with('status', 'Imagen cargada con éxito');
     }
 
     /**
