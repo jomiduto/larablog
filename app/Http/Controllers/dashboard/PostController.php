@@ -32,7 +32,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('dashboard.post.create', ['post' => new Post()]); // Retorno la vista create de la ruta views/dashboard/post
+        $categories = Category::pluck('id', 'title');
+
+        return view('dashboard.post.create', ['post' => new Post(), 'categories' => $categories]); // Retorno la vista create de la ruta views/dashboard/post
     }
 
     /**
