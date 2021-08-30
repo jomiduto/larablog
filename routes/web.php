@@ -26,3 +26,6 @@ Route::resource('dashboard/post', PostController::class);
 
 // Ruta para controllador CategoryController
 Route::resource('dashboard/category', CategoryController::class);
+
+// Ruta para cargar la imagen
+Route::post('dashboard/post/{post}/image', [PostController::class, 'image'])->name('post.image');

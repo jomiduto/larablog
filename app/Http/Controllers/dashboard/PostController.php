@@ -111,6 +111,20 @@ class PostController extends Controller
         return back()->with('status', 'Post actualizado con éxito');
     }
 
+    // Función carga de imagen
+    public function image(Request $request, $id)
+    {
+        $request->validate([
+            'image' => 'required|mimes:jpg,bmp,png|max:10240' //10Mb
+        ]);
+
+        $filename = time() . "." . $request->image->extension(); // Nombre de la imagen con la función time
+
+        $request->image->move(public_path('images'), $filename); // Se establece la ruta donde se guarda la imagen
+
+        echo $filename;
+    }
+
     /**
      *  Eliminar un recurso
      *
