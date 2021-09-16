@@ -14,7 +14,9 @@
                         </div>
                     @endif
                     {{-- Sentencia en blade para ver los datos de sesión --}}
-                    {{ $user = auth()->user()->name }}
+                    {{-- {{ $user = auth()->user()->name }} --}}
+
+                    {{ $user = auth()->user()->rol }}
 
                     {{ __('You are logged in!') }}
                 </div>
