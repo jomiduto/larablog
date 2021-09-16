@@ -19,10 +19,15 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <ul class="nav-link" href="#">Login</ul>
-                </li>
-                <li class="nav-item">
-                    <ul class="nav-link" href="#">Logout</ul>
+                    <a class="nav-link" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
