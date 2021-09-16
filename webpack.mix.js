@@ -11,9 +11,5 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').vue()
-    //.vue()
+mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
-
-// instalar el vue loader
-// npm i -D laravel-mix@next vue@next @vue/compiler-sfc vue-loader@next

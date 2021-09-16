@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\dashboard\CategoryController;
-use App\Http\Controllers\dashboard\PostController;
-use Illuminate\Routing\Route as RoutingRoute;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Routing\Route as RoutingRoute;
+use App\Http\Controllers\dashboard\PostController;
 use Symfony\Component\HttpKernel\Profiler\Profile;
+use App\Http\Controllers\dashboard\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,12 @@ Route::resource('dashboard/category', CategoryController::class);
 
 // Ruta para cargar la imagen
 Route::post('dashboard/post/{post}/image', [PostController::class, 'image'])->name('post.image');
+
+// Rutas del modulo de autenticación
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
