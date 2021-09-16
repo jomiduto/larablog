@@ -16,6 +16,7 @@
                     {{-- Sentencia en blade para ver los datos de sesión --}}
                     {{-- {{ $user = auth()->user()->name }} --}}
 
+                    {{-- Para ver los detalles de lo que trae la tabla rol medinate la relación con la tabla usuarios --}}
                     {{ $user = auth()->user()->rol }}
 
                     {{ __('You are logged in!') }}
