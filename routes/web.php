@@ -1,9 +1,11 @@
 <?php
 
+use App\Models\Rol;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Routing\Route as RoutingRoute;
 use App\Http\Controllers\dashboard\PostController;
+use App\Http\Controllers\dashboard\UserController;
 use Symfony\Component\HttpKernel\Profiler\Profile;
 use App\Http\Controllers\dashboard\CategoryController;
 
@@ -27,6 +29,9 @@ Route::resource('dashboard/post', PostController::class);
 
 // Ruta para controllador CategoryController
 Route::resource('dashboard/category', CategoryController::class);
+
+// Ruta para controlado UserController
+Route::resource('dashboard/user', UserController::class);
 
 // Ruta para cargar la imagen
 Route::post('dashboard/post/{post}/image', [PostController::class, 'image'])->name('post.image');
