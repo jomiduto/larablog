@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -14,7 +15,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        echo "Hola mundo, Rest API";
+        $posts = Post::orderBy('created_at', 'desc')
+            ->where('posted', 'yes')
+            ->paginate(5);
+
+        return response()->json($posts);
     }
 
     /**
@@ -44,9 +49,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        return response()->json($post);
     }
 
     /**
