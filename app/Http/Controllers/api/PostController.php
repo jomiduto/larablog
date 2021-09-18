@@ -19,7 +19,7 @@ class PostController extends Controller
             ->where('posted', 'yes')
             ->paginate(5);
 
-        return response()->json($posts);
+        return response()->json($posts, 200); // Código de respuesta HTTP
     }
 
     /**
