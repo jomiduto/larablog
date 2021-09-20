@@ -15,8 +15,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'desc')
-            ->where('posted', 'yes')
+        $posts = Post::join('post_images', 'post_images.post_id', '=', 'posts.id')
+            ->join('category', 'category.id', '=', 'posts.category_id')
+            ->select('posts.*', 'category.title as category', 'post_images.image')
+            ->orderBy('posts.created_at', 'desc')
+            ->where('posts.posted', 'yes')
             ->paginate(5);
 
         return response()->json($posts, 200); // Código de respuesta HTTP
@@ -51,6 +54,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        $post->image;
+        $post->category;
         return response()->json($post);
     }
 
