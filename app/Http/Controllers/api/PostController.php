@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class PostController extends ApiResponseController
 {
     /**
      * Display a listing of the resource.
@@ -22,7 +22,7 @@ class PostController extends Controller
             ->where('posts.posted', 'yes')
             ->paginate(5);
 
-        return response()->json($posts, 200); // Código de respuesta HTTP
+        return $this->successResponse($posts);
     }
 
     /**
@@ -56,7 +56,7 @@ class PostController extends Controller
     {
         $post->image;
         $post->category;
-        return response()->json($post);
+        return $this->successResponse($post);
     }
 
     /**
