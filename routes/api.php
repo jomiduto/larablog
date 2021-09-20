@@ -19,4 +19,6 @@ use App\Http\Controllers\api\PostController;
 //     return $request->user();
 // });
 
-Route::resource('post', PostController::class);
+Route::resource('post', PostController::class)->only([
+    'index', 'show'
+]);
