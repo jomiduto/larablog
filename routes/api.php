@@ -1,9 +1,10 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\PostController;
-use App\Models\Post;
+use App\Http\Controllers\api\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,6 @@ Route::resource('post', PostController::class)->only([
 ]);
 
 Route::get('post/{category}/category', [PostController::class, 'category']);
+
+Route::get('category', [CategoryController::class, 'index']);
+Route::get('category/all', [CategoryController::class, 'all']);
