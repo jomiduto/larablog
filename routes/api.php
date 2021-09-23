@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\PostController;
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,5 @@ use App\Http\Controllers\api\PostController;
 Route::resource('post', PostController::class)->only([
     'index', 'show'
 ]);
+
+Route::get('post/{category}/category', [PostController::class, 'category']);
