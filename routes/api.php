@@ -26,6 +26,7 @@ Route::resource('post', PostController::class)->only([
 ]);
 
 Route::get('post/{category}/category', [PostController::class, 'category']);
+Route::get('post/{url_clean}/url_clean', [PostController::class, 'url_clean']);
 
 Route::get('category', [CategoryController::class, 'index']);
 Route::get('category/all', [CategoryController::class, 'all']);
